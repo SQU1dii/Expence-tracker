@@ -1,0 +1,485 @@
+/* Navbar container */
+.navbar {
+    background: #1f242d;
+    padding: 15px 20px;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    /* Aligns menu to the right */
+}
+
+/* Remove default list styles */
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Dropdown container */
+.navbar>ul.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Main dropdown button/link */
+.navbar>ul.dropdown>a.dropdown {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #0ef;
+    color: #1f242d;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 238, 255, 0.3);
+}
+
+/* Hover effect on button */
+.navbar>ul.dropdown>a.dropdown:hover {
+    background: #0bd8e6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 238, 255, 0.5);
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    /* Align dropdown to the right */
+    left: auto;
+    background: #16161c;
+    min-width: 220px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    z-index: 1000;
+    margin-top: 8px;
+    padding: 8px 0;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Show dropdown on hover */
+.navbar>ul.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Dropdown items */
+.dropdown-content li {
+    list-style: none;
+}
+
+.dropdown-content li a {
+    display: block;
+    padding: 12px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+/* Hover effect on dropdown items */
+.dropdown-content li a:hover {
+    background: rgba(0, 238, 255, 0.1);
+    color: #0ef;
+    border-left-color: #0ef;
+    padding-left: 25px;
+}
+
+/* Active item */
+.dropdown-content li a.active {
+    background: rgba(0, 238, 255, 0.15);
+    color: #0ef;
+    border-left-color: #0ef;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+   =========================== */
+
+@media (max-width: 768px) {
+    .navbar>ul.dropdown>a.dropdown {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .dropdown-content {
+        min-width: 180px;
+    }
+
+    .dropdown-content li a {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+}
+
+/* Dashboard Container */
+.dashboard {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Summary Cards */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.card-title {
+    font-size: 14px;
+    color: #b3becd;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.card-amount {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.card-change {
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Card Colors */
+.balance-card .card-icon {
+    background: linear-gradient(135deg, #0ef, #1e79ff);
+}
+
+.balance-card .card-amount {
+    color: #0ef;
+}
+
+.income-card .card-icon {
+    background: linear-gradient(135deg, #4caf50, #2e7d32);
+}
+
+.income-card .card-amount {
+    color: #4caf50;
+}
+
+.expense-card .card-icon {
+    background: linear-gradient(135deg, #f44336, #c62828);
+}
+
+.expense-card .card-amount {
+    color: #f44336;
+}
+
+/* Quick Actions */
+.quick-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-income-btn {
+    background: linear-gradient(135deg, #4caf50, #2e7d32);
+    color: #fff;
+}
+
+.add-expense-btn {
+    background: linear-gradient(135deg, #f44336, #c62828);
+    color: #fff;
+}
+
+.action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Main Content Grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+/* Chart Card */
+.chart-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chart-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #0ef;
+}
+
+.chart-placeholder {
+    height: 300px;
+    background: rgba(0, 238, 255, 0.1);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0ef;
+    font-size: 18px;
+}
+
+/* Recent Transactions */
+.transactions-section {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #0ef;
+}
+
+.view-all-btn {
+    color: #0ef;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border: 2px solid #0ef;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.view-all-btn:hover {
+    background: #0ef;
+    color: #1f242d;
+}
+
+.transaction-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border-left: 4px solid;
+    transition: all 0.3s ease;
+}
+
+.transaction-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(5px);
+}
+
+.transaction-item.income {
+    border-left-color: #4caf50;
+}
+
+.transaction-item.expense {
+    border-left-color: #f44336;
+}
+
+.transaction-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.transaction-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.transaction-details h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.transaction-details p {
+    font-size: 13px;
+    color: #b3becd;
+}
+
+.transaction-amount {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.transaction-amount.income {
+    color: #4caf50;
+}
+
+.transaction-amount.expense {
+    color: #f44336;
+}
+
+/* Category Summary */
+.category-summary {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 25px;
+}
+
+.category-item {
+    margin-bottom: 20px;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.category-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.category-amount {
+    font-weight: 600;
+    color: #0ef;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #0ef, #1e79ff);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .summary-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .navbar {
+        padding: 15px;
+    }
+
+    .navbar h1 {
+        font-size: 18px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .card-amount {
+        font-size: 28px;
+    }
+}
